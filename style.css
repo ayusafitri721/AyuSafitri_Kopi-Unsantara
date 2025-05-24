@@ -60,10 +60,10 @@ body::before {
 
 [data-theme="dark"] body::before {
     background: 
-        linear-gradient(145deg, rgba(167, 176, 154, 0.05) 0%, rgba(212, 163, 115, 0.05) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30 50 Q40 45 50 50 Q60 55 70 50" fill="none" stroke="%23E8D6C0" stroke-width="0.5" stroke-opacity="0.1"/></svg>'),
+        linear-gradient(145deg, rgba(167, 176, 154, 0.08) 0%, rgba(212, 163, 115, 0.08) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30 50 Q40 45 50 50 Q60 55 70 50" fill="none" stroke="%23E8D6C0" stroke-width="0.5" stroke-opacity="0.1"/><path d="M20 70 L25 65 L30 70 L25 75 Z" fill="%23E8D6C0" fill-opacity="0.1"/></svg>'),
         var(--krem);
-    background-size: auto, 150px 150px, auto;
+    background-size: auto, 120px 120px, auto;
     background-repeat: repeat, repeat, no-repeat;
 }
 
@@ -967,16 +967,21 @@ footer p {
 
 /* Dark Theme Adjustments for Footer */
 [data-theme="dark"] footer {
-    background: var(--coklat-muda);
+    background: var(--putih); /* Matches modal background in dark mode */
 }
 
 [data-theme="dark"] footer p {
-    color: var(--krem);
-    opacity: 1;
+    color: var(--coklat-tua); /* Matches nav-links, modal text */
+    opacity: 0.9;
 }
 
-[data-theme="dark"] footer p:nth-child(2) {
-    color: #ff6b6b;
+[data-theme="dark"] .social-link {
+    color: var(--coklat-tua); /* Matches footer text */
+}
+
+[data-theme="dark"] .social-link:hover {
+    background: var(--hijau-daun);
+    color: var(--putih);
 }
 
 /* =============================================
