@@ -19,7 +19,9 @@
 [data-theme="dark"] {
     --krem: #2C2C2C;
     --putih: #1A1A1A;
-    --coklat-muda: #6B4E3D;
+    --coklat-tua: #E8D6C0;
+    --coklat-muda: #D4A373;
+    --hijau-daun: #A7B09A;
 }
 
 /* Reset & Base Styles */
@@ -190,25 +192,54 @@ nav {
 
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(92, 64, 51, 0.4), rgba(143, 151, 121, 0.3)), 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%235C4033" width="1200" height="800"/><circle cx="300" cy="200" r="100" fill="%23A47551" opacity="0.3"/><circle cx="900" cy="500" r="150" fill="%238F9779" opacity="0.2"/><path d="M0,400 Q300,300 600,400 T1200,400 V800 H0 Z" fill="%23F5F5DC" opacity="0.1"/></svg>');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    position: relative;
     overflow: hidden;
 }
 
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.next {
+    transform: translateX(100%);
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
     padding: 2rem;
     animation: fadeInUp 1s ease-out;
-    z-index: 2;
 }
 
 .hero h1 {
@@ -304,7 +335,7 @@ nav {
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.1);
     animation: float 6s ease-in-out infinite;
-    z-index: 1;
+    z-index: 2;
 }
 
 .floating-coffee:nth-child(1) { 
@@ -417,34 +448,47 @@ nav {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-strong);
-    background: var(--gradien-coklat);
     min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.about-img:hover {
+    transform: scale(1.05);
 }
 
 .coffee-illustration {
-    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    text-align: left;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .coffee-illustration i {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
     animation: float 3s ease-in-out infinite;
 }
 
 .coffee-illustration h4 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .coffee-illustration p {
     opacity: 0.9;
     font-style: italic;
+    font-size: 0.9rem;
 }
 
 /* =============================================
@@ -518,23 +562,20 @@ nav {
 .product-image {
     width: 100%;
     height: 200px;
-    background: var(--gradien-coklat);
     border-radius: 15px;
     margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: white;
-    position: relative;
     overflow: hidden;
 }
 
-.product-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-img:hover {
+    transform: scale(1.05);
 }
 
 .product-name {
@@ -1012,6 +1053,14 @@ footer p {
     margin-bottom: 1rem;
 }
 
+.modal-content img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
 .modal-content p {
     color: var(--coklat-muda);
     margin-bottom: 1rem;
@@ -1083,7 +1132,7 @@ footer p {
    RESPONSIVE DESIGN
    ============================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-links {
         position: fixed;
         top: 80px;
@@ -1194,5 +1243,23 @@ footer p {
     .filter-btn {
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
+    }
+
+    .coffee-illustration {
+        bottom: 10px;
+        left: 10px;
+        padding: 0.5rem;
+    }
+
+    .coffee-illustration i {
+        font-size: 1.5rem;
+    }
+
+    .coffee-illustration h4 {
+        font-size: 1.2rem;
+    }
+
+    .coffee-illustration p {
+        font-size: 0.8rem;
     }
 }
