@@ -43,10 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const filter = button.getAttribute('data-filter');
             productCards.forEach(card => {
+                card.classList.remove('visible');
                 if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
+                    card.classList.add('visible');
                 }
             });
         });
@@ -221,4 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Initialize all products as visible on load
+    productCards.forEach(card => card.classList.add('visible'));
 });
