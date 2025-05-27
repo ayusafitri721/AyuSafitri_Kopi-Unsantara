@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* Existing CSS Variables */
 :root {
     --coklat-tua: #5C4033;
     --krem: #F5F5DC;
@@ -178,7 +178,7 @@ nav {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 5px; /* Jarak antar span diperlebar untuk akurasi */
+    gap: 5px;
     padding: 0.5rem;
 }
 
@@ -189,11 +189,11 @@ nav {
     transition: all 0.3s ease;
     border-radius: 2px;
     position: relative;
-    transform-origin: center; /* Rotasi dari tengah untuk silang akurat */
+    transform-origin: center;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px); /* Posisi atas kanan untuk silang */
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -201,7 +201,7 @@ nav {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px); /* Posisi bawah kanan untuk silang */
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Hero Section */
@@ -515,11 +515,11 @@ nav {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    display: none; /* Sembunyikan semua card secara default */
+    display: none;
 }
 
 .product-card.visible {
-    display: block; /* Tampilkan hanya card yang difilter */
+    display: block;
 }
 
 .product-card::before {
@@ -1096,6 +1096,90 @@ footer p {
     transform: translateY(0);
 }
 
+/* Enhanced Language Toggle Styles */
+.language-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--putih);
+    border: 2px solid var(--hijau-daun);
+    color: var(--coklat-tua);
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.language-toggle::after {
+    content: '\f078'; /* Font Awesome chevron-down icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--hijau-daun);
+    transition: var(--transition);
+}
+
+.language-toggle:hover {
+    background: var(--hijau-daun);
+    color: var(--putih);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+}
+
+.language-toggle:hover::after {
+    color: var(--putih);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.language-toggle:focus {
+    outline: none;
+    border-color: var(--coklat-tua);
+    box-shadow: 0 0 0 3px rgba(143, 151, 121, 0.2);
+}
+
+.language-toggle option {
+    background: var(--putih);
+    color: var(--coklat-tua);
+    font-family: 'Poppins', sans-serif;
+}
+
+[data-theme="dark"] .language-toggle {
+    background: var(--krem);
+    color: var(--coklat-tua);
+    border-color: var(--hijau-daun);
+}
+
+[data-theme="dark"] .language-toggle:hover {
+    background: var(--hijau-daun);
+    color: var(--putih);
+}
+
+[data-theme="dark"] .language-toggle::after {
+    color: var(--hijau-daun);
+}
+
+[data-theme="dark"] .language-toggle:hover::after {
+    color: var(--putih);
+}
+
+[data-theme="dark"] .language-toggle:focus {
+    border-color: var(--coklat-tua);
+    box-shadow: 0 0 0 3px rgba(167, 176, 154, 0.2);
+}
+
+/* Responsive Design */
+/* Existing CSS Variables (unchanged) */
+/* ... */
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .nav-links {
@@ -1108,13 +1192,19 @@ footer p {
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        padding-top: 2rem;
+        padding-top: 1.5rem; /* Reduced from 3rem to 1.5rem */
         transition: left 0.3s ease;
         box-shadow: var(--shadow-strong);
     }
 
     .nav-links.active {
         left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0.3rem 0; /* Reduced from 0.5rem 0 to 0.3rem 0 */
     }
 
     .hamburger {
@@ -1175,6 +1265,28 @@ footer p {
         margin: 1rem;
         max-width: calc(100% - 2rem);
     }
+
+    .language-toggle {
+        width: 80%;
+        margin: 1rem auto; /* Reduced from 1.5rem auto to 1rem auto */
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        text-align: center;
+        text-align-last: center;
+        border-radius: 20px;
+        background: var(--putih);
+        border: 2px solid var(--hijau-daun);
+        box-shadow: var(--shadow-soft);
+    }
+
+    .language-toggle::after {
+        right: 1rem;
+    }
+
+    [data-theme="dark"] .language-toggle {
+        background: var(--krem);
+        border: 2px solid var(--hijau-daun);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1227,4 +1339,21 @@ footer p {
     .coffee-illustration p {
         font-size: 0.8rem;
     }
+
+    .language-toggle {
+        width: 85%;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+        margin: 0.8rem auto; /* Reduced from 1.2rem auto to 0.8rem auto */
+        text-align: center;
+        text-align-last: center;
+        border-radius: 18px;
+    }
+
+    .language-toggle::after {
+        right: 0.8rem;
+    }
 }
+
+/* Other existing styles (unchanged) */
+/* ... */

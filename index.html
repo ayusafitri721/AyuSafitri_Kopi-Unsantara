@@ -6,7 +6,7 @@
     <meta name="description" content="Kopi Unsantara menyajikan kopi asli Indonesia dengan cita rasa autentik dari berbagai daerah Nusantara.">
     <meta name="keywords" content="kopi, kopi nusantara, kopi indonesia, arabika, robusta, specialty coffee">
     <meta name="author" content="Kopi Unsantara">
-    <title>Kopi Unsantara - Rasa Asli Nusantara di Setiap Seduhan</title>
+    <title data-lang="title">Kopi Unsantara - Rasa Asli Nusantara di Setiap Seduhan</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -26,15 +26,21 @@
         <nav>
             <a href="#" class="logo">
                 <i class="fas fa-mug-hot"></i>
-                Kopi Unsantara
+                <span data-lang="logo">Kopi Unsantara</span>
             </a>
             
             <ul class="nav-links" id="navLinks">
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#produk">Produk</a></li>
-                <li><a href="#promo">Promo</a></li>
-                <li><a href="#testimoni">Testimoni</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#tentang" data-lang="nav-about">Tentang</a></li>
+                <li><a href="#produk" data-lang="nav-products">Produk</a></li>
+                <li><a href="#promo" data-lang="nav-promo">Promo</a></li>
+                <li><a href="#testimoni" data-lang="nav-testimonials">Testimoni</a></li>
+                <li><a href="#kontak" data-lang="nav-contact">Kontak</a></li>
+                <li>
+                    <select id="languageToggle" class="language-toggle">
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
                 <li><button class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                 </button></li>
@@ -55,16 +61,16 @@
         <div class="floating-coffee"><i class="fas fa-coffee-togo"></i></div>
         
         <div class="hero-content">
-            <h1>Kopi Unsantara</h1>
-            <p class="hero-subtitle">Rasa Asli Nusantara di Setiap Seduhan</p>
+            <h1 data-lang="hero-title">Kopi Unsantara</h1>
+            <p class="hero-subtitle" data-lang="hero-subtitle">Rasa Asli Nusantara di Setiap Seduhan</p>
             <div class="cta-buttons">
                 <a href="#produk" class="btn btn-primary">
                     <i class="fas fa-eye"></i>
-                    Lihat Produk
+                    <span data-lang="hero-cta-products">Lihat Produk</span>
                 </a>
                 <a href="#kontak" class="btn btn-secondary">
                     <i class="fas fa-phone"></i>
-                    Pesan Sekarang
+                    <span data-lang="hero-cta-order">Pesan Sekarang</span>
                 </a>
             </div>
         </div>
@@ -72,26 +78,25 @@
 
     <!-- About Section -->
     <section id="tentang" class="section reveal">
-        <h2 class="section-title">Tentang Kami</h2>
+        <h2 class="section-title" data-lang="about-title">Tentang Kami</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3>Warisan Cita Rasa Nusantara</h3>
-                <p>Kopi Unsantara lahir dari kecintaan mendalam terhadap kopi asli Indonesia. Kami menghadirkan biji kopi pilihan terbaik dari berbagai daerah di Nusantara, mulai dari Arabika premium hingga Robusta yang kuat karakternya.</p>
-                
-                <p>Setiap biji kopi yang kami sajikan telah melalui proses seleksi ketat dan pengolahan yang mempertahankan cita rasa autentik. Kami berkomitmen mendukung petani kopi lokal dan menghadirkan pengalaman ngopi yang tak terlupakan.</p>
+                <h3 data-lang="about-subtitle">Warisan Cita Rasa Nusantara</h3>
+                <p data-lang="about-text-1">Kopi Unsantara lahir dari kecintaan mendalam terhadap kopi asli Indonesia. Kami menghadirkan biji kopi pilihan terbaik dari berbagai daerah di Nusantara, mulai dari Arabika premium hingga Robusta yang kuat karakternya.</p>
+                <p data-lang="about-text-2">Setiap biji kopi yang kami sajikan telah melalui proses seleksi ketat dan pengolahan yang mempertahankan cita rasa autentik. Kami berkomitmen mendukung petani kopi lokal dan menghadirkan pengalaman ngopi yang tak terlupakan.</p>
                 
                 <div class="features">
                     <div class="feature-item">
                         <i class="fas fa-leaf"></i>
-                        <span>100% Kopi Asli Indonesia</span>
+                        <span data-lang="feature-1">100% Kopi Asli Indonesia</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-heart"></i>
-                        <span>Mendukung Petani Lokal</span>
+                        <span data-lang="feature-2">Mendukung Petani Lokal</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-award"></i>
-                        <span>Kualitas Premium</span>
+                        <span data-lang="feature-3">Kualitas Premium</span>
                     </div>
                 </div>
             </div>
@@ -99,8 +104,8 @@
                 <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coffee Beans" class="about-img">
                 <div class="coffee-illustration">
                     <i class="fas fa-beans"></i>
-                    <h4>Sejak 2020</h4>
-                    <p>Melayani pecinta kopi Indonesia</p>
+                    <h4 data-lang="about-illustration-title">Sejak 2020</h4>
+                    <p data-lang="about-illustration-text">Melayani pecinta kopi Indonesia</p>
                 </div>
             </div>
         </div>
@@ -108,13 +113,13 @@
 
     <!-- Products Section -->
     <section id="produk" class="section reveal">
-        <h2 class="section-title">Katalog Produk</h2>
+        <h2 class="section-title" data-lang="products-title">Katalog Produk</h2>
         
         <div class="products-filter">
-            <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="arabika">Arabika</button>
-            <button class="filter-btn" data-filter="robusta">Robusta</button>
-            <button class="filter-btn" data-filter="specialty">Specialty</button>
+            <button class="filter-btn active" data-filter="all" data-lang="filter-all">Semua</button>
+            <button class="filter-btn" data-filter="arabika" data-lang="filter-arabika">Arabika</button>
+            <button class="filter-btn" data-filter="robusta" data-lang="filter-robusta">Robusta</button>
+            <button class="filter-btn" data-filter="specialty" data-lang="filter-specialty">Specialty</button>
         </div>
 
         <div class="products-grid" id="productsGrid">
@@ -122,12 +127,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arabika Gayo" class="product-img">
                 </div>
-                <h3 class="product-name">Arabika Gayo</h3>
+                <h3 class="product-name" data-lang="product-arabika-gayo-title">Arabika Gayo</h3>
                 <p class="product-price">Rp 75.000/kg</p>
-                <p class="product-description">Kopi arabika premium dari dataran tinggi Gayo, Aceh. Memiliki aroma floral dengan rasa fruity yang khas.</p>
+                <p class="product-description" data-lang="product-arabika-gayo-desc">Kopi arabika premium dari dataran tinggi Gayo, Aceh. Memiliki aroma floral dengan rasa fruity yang khas.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Gayo')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Gayo', 75000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Gayo')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Gayo', 75000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
 
@@ -135,12 +140,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Robusta Lampung" class="product-img">
                 </div>
-                <h3 class="product-name">Robusta Lampung</h3>
+                <h3 class="product-name" data-lang="product-robusta-lampung-title">Robusta Lampung</h3>
                 <p class="product-price">Rp 55.000/kg</p>
-                <p class="product-description">Robusta berkualitas tinggi dari Lampung dengan karakter kuat dan body yang tebal. Cocok untuk espresso.</p>
+                <p class="product-description" data-lang="product-robusta-lampung-desc">Robusta berkualitas tinggi dari Lampung dengan karakter kuat dan body yang tebal. Cocok untuk espresso.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Robusta Lampung')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Robusta Lampung', 55000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Robusta Lampung')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Robusta Lampung', 55000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
 
@@ -148,12 +153,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1494314675226-4a7ae30cd763?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arabika Toraja" class="product-img">
                 </div>
-                <h3 class="product-name">Arabika Toraja</h3>
+                <h3 class="product-name" data-lang="product-arabika-toraja-title">Arabika Toraja</h3>
                 <p class="product-price">Rp 85.000/kg</p>
-                <p class="product-description">Kopi legendary dari Sulawesi Selatan dengan kompleksitas rasa yang unik dan aftertaste yang panjang.</p>
+                <p class="product-description" data-lang="product-arabika-toraja-desc">Kopi legendary dari Sulawesi Selatan dengan kompleksitas rasa yang unik dan aftertaste yang panjang.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Toraja')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Toraja', 85000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Toraja')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Toraja', 85000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
 
@@ -161,12 +166,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kopi Luwak" class="product-img">
                 </div>
-                <h3 class="product-name">Kopi Luwak</h3>
+                <h3 class="product-name" data-lang="product-kopi-luwak-title">Kopi Luwak</h3>
                 <p class="product-price">Rp 250.000/250g</p>
-                <p class="product-description">Specialty coffee termahal di dunia dengan proses fermentasi alami yang menghasilkan cita rasa istimewa.</p>
+                <p class="product-description" data-lang="product-kopi-luwak-desc">Specialty coffee termahal di dunia dengan proses fermentasi alami yang menghasilkan cita rasa istimewa.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Kopi Luwak')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Kopi Luwak', 250000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Kopi Luwak')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Kopi Luwak', 250000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
 
@@ -174,12 +179,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arabika Kintamani" class="product-img">
                 </div>
-                <h3 class="product-name">Arabika Kintamani</h3>
+                <h3 class="product-name" data-lang="product-arabika-kintamani-title">Arabika Kintamani</h3>
                 <p class="product-price">Rp 70.000/kg</p>
-                <p class="product-description">Kopi arabika dari Bali dengan karakteristik citrus dan keasaman yang seimbang. Cocok untuk manual brewing.</p>
+                <p class="product-description" data-lang="product-arabika-kintamani-desc">Kopi arabika dari Bali dengan karakteristik citrus dan keasaman yang seimbang. Cocok untuk manual brewing.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Kintamani')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Kintamani', 70000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Arabika Kintamani')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Arabika Kintamani', 70000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
 
@@ -187,12 +192,12 @@
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1495474472287-3947224b9f6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Java Preanger" class="product-img">
                 </div>
-                <h3 class="product-name">Java Preanger</h3>
+                <h3 class="product-name" data-lang="product-java-preanger-title">Java Preanger</h3>
                 <p class="product-price">Rp 95.000/kg</p>
-                <p class="product-description">Specialty grade dari Jawa Barat dengan processing honey yang menghasilkan sweetness natural yang istimewa.</p>
+                <p class="product-description" data-lang="product-java-preanger-desc">Specialty grade dari Jawa Barat dengan processing honey yang menghasilkan sweetness natural yang istimewa.</p>
                 <div class="product-actions">
-                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Java Preanger')">Detail</button>
-                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Java Preanger', 95000)">Pesan</button>
+                    <button class="btn btn-small btn-secondary" onclick="showProductDetail('Java Preanger')" data-lang="product-detail">Detail</button>
+                    <button class="btn btn-small btn-primary" onclick="orderWhatsApp('Java Preanger', 95000)" data-lang="product-order">Pesan</button>
                 </div>
             </div>
         </div>
@@ -202,31 +207,31 @@
     <section id="promo" class="section">
         <div class="promo-section reveal">
             <div class="promo-content">
-                <h2 class="promo-title">🎉 Promo Special!</h2>
-                <p class="promo-subtitle">Diskon 25% untuk pembelian min. 2kg</p>
+                <h2 class="promo-title" data-lang="promo-title">🎉 Promo Special!</h2>
+                <p class="promo-subtitle" data-lang="promo-subtitle">Diskon 25% untuk pembelian min. 2kg</p>
                 
                 <div class="countdown" id="countdown">
                     <div class="countdown-item">
                         <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label">Hari</span>
+                        <span class="countdown-label" data-lang="countdown-days">Hari</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">Jam</span>
+                        <span class="countdown-label" data-lang="countdown-hours">Jam</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">Menit</span>
+                        <span class="countdown-label" data-lang="countdown-minutes">Menit</span>
                     </div>
                     <div class="countdown-item">
                         <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">Detik</span>
+                        <span class="countdown-label" data-lang="countdown-seconds">Detik</span>
                     </div>
                 </div>
                 
                 <a href="#kontak" class="btn btn-primary">
                     <i class="fas fa-bolt"></i>
-                    Ambil Promo Sekarang!
+                    <span data-lang="promo-cta">Ambil Promo Sekarang!</span>
                 </a>
             </div>
         </div>
@@ -234,14 +239,14 @@
 
     <!-- Testimonials Section -->
     <section id="testimoni" class="section reveal">
-        <h2 class="section-title">Testimoni Pelanggan</h2>
+        <h2 class="section-title" data-lang="testimonials-title">Testimoni Pelanggan</h2>
         
         <div class="testimonials-slider">
             <div class="testimonials-container" id="testimonialsContainer">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Kopi Gayo dari Unsantara benar-benar premium! Aromanya wangi dan rasanya smooth banget. Jadi langganan nih!"</p>
-                    <p class="testimonial-author">Andi Wijaya</p>
-                    <p class="testimonial-role">Owner Kedai Kopi Jakarta</p>
+                    <p class="testimonial-text" data-lang="testimonial-1-text">"Kopi Gayo dari Unsantara benar-benar premium! Aromanya wangi dan rasanya smooth banget. Jadi langganan nih!"</p>
+                    <p class="testimonial-author" data-lang="testimonial-1-author">Andi Wijaya</p>
+                    <p class="testimonial-role" data-lang="testimonial-1-role">Owner Kedai Kopi Jakarta</p>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -252,9 +257,9 @@
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Pelayanan cepat, kopi fresh, harga bersahabat. Robusta Lampungnya cocok banget buat campuran kopi susu!"</p>
-                    <p class="testimonial-author">Sari Indah</p>
-                    <p class="testimonial-role">Barista Cafe Bandung</p>
+                    <p class="testimonial-text" data-lang="testimonial-2-text">"Pelayanan cepat, kopi fresh, harga bersahabat. Robusta Lampungnya cocok banget buat campuran kopi susu!"</p>
+                    <p class="testimonial-author" data-lang="testimonial-2-author">Sari Indah</p>
+                    <p class="testimonial-role" data-lang="testimonial-2-role">Barista Cafe Bandung</p>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -265,9 +270,9 @@
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Kopi Torajanya juara! Kompleks rasanya tapi balance. Packaging juga rapi, cocok buat oleh-oleh."</p>
-                    <p class="testimonial-author">Budi Santoso</p>
-                    <p class="testimonial-role">Coffee Enthusiast</p>
+                    <p class="testimonial-text" data-lang="testimonial-3-text">"Kopi Torajanya juara! Kompleks rasanya tapi balance. Packaging juga rapi, cocok buat oleh-oleh."</p>
+                    <p class="testimonial-author" data-lang="testimonial-3-author">Budi Santoso</p>
+                    <p class="testimonial-role" data-lang="testimonial-3-role">Coffee Enthusiast</p>
                     <div class="testimonial-rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -291,7 +296,7 @@
 
     <!-- Contact Section -->
     <section id="kontak" class="section reveal">
-        <h2 class="section-title">Hubungi Kami</h2>
+        <h2 class="section-title" data-lang="contact-title">Hubungi Kami</h2>
         
         <div class="contact-content">
             <div class="contact-info">
@@ -300,9 +305,9 @@
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <div class="contact-details">
-                        <h4>WhatsApp</h4>
+                        <h4 data-lang="contact-whatsapp-title">WhatsApp</h4>
                         <p>+62 812-3456-7890</p>
-                        <small>Respon cepat 24/7</small>
+                        <small data-lang="contact-whatsapp-desc">Respon cepat 24/7</small>
                     </div>
                 </div>
                 
@@ -311,9 +316,9 @@
                         <i class="fab fa-instagram"></i>
                     </div>
                     <div class="contact-details">
-                        <h4>Instagram</h4>
+                        <h4 data-lang="contact-instagram-title">Instagram</h4>
                         <p>@kopiunsantara</p>
-                        <small>Follow untuk update promo</small>
+                        <small data-lang="contact-instagram-desc">Follow untuk update promo</small>
                     </div>
                 </div>
                 
@@ -322,9 +327,9 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="contact-details">
-                        <h4>Alamat</h4>
-                        <p>Jl. Kopi Nusantara No. 123</p>
-                        <small>Jakarta Selatan, Indonesia</small>
+                        <h4 data-lang="contact-address-title">Alamat</h4>
+                        <p data-lang="contact-address-text">Jl. Kopi Nusantara No. 123</p>
+                        <small data-lang="contact-address-desc">Jakarta Selatan, Indonesia</small>
                     </div>
                 </div>
                 
@@ -333,40 +338,40 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="contact-details">
-                        <h4>Jam Operasional</h4>
-                        <p>Senin - Sabtu: 08:00 - 17:00</p>
-                        <small>Minggu: 09:00 - 15:00</small>
+                        <h4 data-lang="contact-hours-title">Jam Operasional</h4>
+                        <p data-lang="contact-hours-text">Senin - Sabtu: 08:00 - 17:00</p>
+                        <small data-lang="contact-hours-desc">Minggu: 09:00 - 15:00</small>
                     </div>
                 </div>
             </div>
             
             <div class="contact-form">
-                <h3>Kirim Pesan</h3>
+                <h3 data-lang="contact-form-title">Kirim Pesan</h3>
                 <div id="formMessage" style="display: none; text-align: center; margin-bottom: 1rem;"></div>
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
+                        <label for="name" data-lang="contact-form-name">Nama Lengkap</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" data-lang="contact-form-email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">No. WhatsApp</label>
+                        <label for="phone" data-lang="contact-form-phone">No. WhatsApp</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Pesan</label>
+                        <label for="message" data-lang="contact-form-message">Pesan</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         <i class="fas fa-paper-plane"></i>
-                        Kirim Pesan
+                        <span data-lang="contact-form-submit">Kirim Pesan</span>
                     </button>
                 </form>
             </div>
@@ -383,8 +388,8 @@
                 <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
             
-            <p>© 2025 Kopi Unsantara. Rasa Asli Nusantara di Setiap Seduhan.</p>
-            <p>Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Indonesian Coffee Lovers</p>
+            <p data-lang="footer-copyright">© 2025 Kopi Unsantara. Rasa Asli Nusantara di Setiap Seduhan.</p>
+            <p data-lang="footer-made">Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Indonesian Coffee Lovers</p>
         </div>
     </footer>
 
