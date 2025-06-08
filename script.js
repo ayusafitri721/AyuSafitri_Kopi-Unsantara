@@ -75,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-form-phone": "No. WhatsApp",
             "contact-form-message": "Pesan",
             "contact-form-submit": "Kirim Pesan",
+            "contact-form-success": "Pesan berhasil dikirim! Kami akan segera menghubungi Anda.",
             "footer-copyright": "© 2025 Kopi Unsantara. Rasa Asli Nusantara di Setiap Seduhan.",
-            "footer-made": "Made with <i class=\"fas fa-heart\" style=\"color: #ff6b6b;\"></i> for Indonesian Coffee Lovers"
+            "footer-made": "Dibuat dengan <i class=\"fas fa-heart\" style=\"color: #ff6b6b;\"></i> untuk Pecinta Kopi Indonesia"
+
+       
         },
         en: {
             title: "Kopi Unsantara - Authentic Nusantara Flavor in Every Sip",
@@ -152,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-form-phone": "WhatsApp Number",
             "contact-form-message": "Message",
             "contact-form-submit": "Send Message",
+            "contact-form-success": "Message sent successfully! We will contact you soon.",
             "footer-copyright": "© 2025 Kopi Unsantara. Authentic Nusantara Flavor in Every Sip.",
             "footer-made": "Made with <i class=\"fas fa-heart\" style=\"color: #ff6b6b;\"></i> for Indonesian Coffee Lovers"
         }
@@ -283,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Auto-slide every 5 seconds
-    let autoSlideInterval = setInterval(() => {
+    let autoSlideInterval = setInterval(() => { 
         currentSlide = (currentSlide + 1) % totalSlides;
         updateSlider();
     }, 5000);
@@ -302,27 +306,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const formMessage = document.getElementById('formMessage');
     
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            message: formData.get('message')
-        };
-        
-        // Simulate form submission
-        console.log('Form submitted:', data);
-        formMessage.style.display = 'block';
-        formMessage.className = 'success';
-        formMessage.textContent = translations[currentLanguage]['form-success'] || 'Pesan berhasil dikirim! Kami akan segera menghubungi Anda.';
-        
-        contactForm.reset();
-        
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 3000);
-    });
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
+    const whatsappMessage = `Halo, saya ${name} (email: ${email}, WA: ${phone}). Pesan: ${message}`;
+    const whatsappUrl = `https://wa.me/62895328651916?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    contactForm.reset();
+    formMessage.style.display = 'block';
+    formMessage.className = 'success';
+    formMessage.textContent = 'Pesan telah dikirim via WhatsApp!';
+    setTimeout(() => {
+        formMessage.style.display = 'none';
+    }, 3000);
+});
 
     // Product Modal
     window.showProductDetail = (productName) => {
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.orderWhatsApp = (productName, price) => {
         const message = translations[currentLanguage]['whatsapp-order']?.replace('{productName}', productName).replace('{price}', price) ||
                         `Halo, saya ingin memesan ${productName} seharga Rp ${price}.`;
-        const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/62895328651916?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 
