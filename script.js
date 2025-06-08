@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-instagram-desc": "Follow untuk update promo",
             "contact-address-title": "Alamat",
             "contact-address-text": "Jl. Kopi Nusantara No. 123",
-            "contact-address-desc": "Jakarta Selatan, Indonesia",
+            "contact-address-desc": "Jakarta Timur, Indonesia",
             "contact-hours-title": "Jam Operasional",
             "contact-hours-text": "Senin - Sabtu: 08:00 - 17:00",
             "contact-hours-desc": "Minggu: 09:00 - 15:00",
@@ -76,10 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-form-message": "Pesan",
             "contact-form-submit": "Kirim Pesan",
             "contact-form-success": "Pesan berhasil dikirim! Kami akan segera menghubungi Anda.",
+            "newsletter-success": "Terima kasih telah berlangganan!",
+            "newsletter-error": "Masukkan email yang valid!",
+            "footer-newsletter-title": "Newsletter",
+            "footer-newsletter-desc": "Dapatkan update promo dan berita terbaru!",
+            "newsletter-placeholder": "Masukkan email Anda",
+            "newsletter-submit": "Berlangganan",
+            "footer-links-title": "Tautan Cepat",
             "footer-copyright": "© 2025 Kopi Unsantara. Rasa Asli Nusantara di Setiap Seduhan.",
             "footer-made": "Dibuat dengan <i class=\"fas fa-heart\" style=\"color: #ff6b6b;\"></i> untuk Pecinta Kopi Indonesia"
-
-       
         },
         en: {
             title: "Kopi Unsantara - Authentic Nusantara Flavor in Every Sip",
@@ -145,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-instagram-desc": "Follow for promo updates",
             "contact-address-title": "Address",
             "contact-address-text": "Jl. Kopi Nusantara No. 123",
-            "contact-address-desc": "South Jakarta, Indonesia",
+            "contact-address-desc": "East Jakarta, Indonesia",
             "contact-hours-title": "Operating Hours",
             "contact-hours-text": "Monday - Saturday: 08:00 - 17:00",
             "contact-hours-desc": "Sunday: 09:00 - 15:00",
@@ -156,6 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-form-message": "Message",
             "contact-form-submit": "Send Message",
             "contact-form-success": "Message sent successfully! We will contact you soon.",
+            "newsletter-success": "Thank you for subscribing!",
+            "newsletter-error": "Please enter a valid email!",
+            "footer-newsletter-title": "Newsletter",
+            "footer-newsletter-desc": "Get the latest promo updates and news!",
+            "newsletter-placeholder": "Enter your email",
+            "newsletter-submit": "Subscribe",
+            "footer-links-title": "Quick Links",
             "footer-copyright": "© 2025 Kopi Unsantara. Authentic Nusantara Flavor in Every Sip.",
             "footer-made": "Made with <i class=\"fas fa-heart\" style=\"color: #ff6b6b;\"></i> for Indonesian Coffee Lovers"
         }
@@ -170,7 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-lang]').forEach(element => {
             const key = element.getAttribute('data-lang');
             if (translations[lang][key]) {
-                element.innerHTML = translations[lang][key];
+                if (element.tagName.toLowerCase() === 'input' && element.getAttribute('placeholder')) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                } else {
+                    element.innerHTML = translations[lang][key];
+                }
             }
         });
         document.title = translations[lang].title;
@@ -306,23 +322,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const formMessage = document.getElementById('formMessage');
     
     contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
-    const whatsappMessage = `Halo, saya ${name} (email: ${email}, WA: ${phone}). Pesan: ${message}`;
-    const whatsappUrl = `https://wa.me/62895328651916?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
-    contactForm.reset();
-    formMessage.style.display = 'block';
-    formMessage.className = 'success';
-    formMessage.textContent = 'Pesan telah dikirim via WhatsApp!';
-    setTimeout(() => {
-        formMessage.style.display = 'none';
-    }, 3000);
-});
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const phone = formData.get('phone');
+        const message = formData.get('message');
+        const whatsappMessage = `Halo, saya ${name} (email: ${email}, WA: ${phone}). Pesan: ${message}`;
+        const whatsappUrl = `https://wa.me/62895328651916?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappUrl, '_blank');
+        contactForm.reset();
+        formMessage.style.display = 'block';
+        formMessage.className = 'success';
+        formMessage.textContent = translations[currentLanguage]['contact-form-success'];
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 3000);
+    });
+
+    // Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterMessage = document.getElementById('newsletterMessage');
+
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+
+        // Validasi sederhana untuk email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            newsletterMessage.style.display = 'block';
+            newsletterMessage.className = 'error';
+            newsletterMessage.textContent = translations[currentLanguage]['newsletter-error'];
+            setTimeout(() => {
+                newsletterMessage.style.display = 'none';
+            }, 3000);
+            return;
+        }
+
+        // Kirim ke WhatsApp
+        const whatsappMessage = `Halo, saya ingin berlangganan newsletter dengan email: ${email}`;
+        const whatsappUrl = `https://wa.me/62895328651916?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappUrl, '_blank');
+
+        // Tampilkan pesan sukses
+        newsletterMessage.style.display = 'block';
+        newsletterMessage.className = 'success';
+        newsletterMessage.textContent = translations[currentLanguage]['newsletter-success'];
+        newsletterForm.reset();
+
+        // Sembunyikan pesan setelah 3 detik
+        setTimeout(() => {
+            newsletterMessage.style.display = 'none';
+        }, 3000);
+    });
 
     // Product Modal
     window.showProductDetail = (productName) => {
@@ -374,7 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.scroll-indicator').style.width = `${scrollPercent}%`;
     });
 
-    // Reveal Animations
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealOnScroll = () => {
@@ -407,6 +459,5 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Initialize all products as visible on load
     productCards.forEach(card => card.classList.add('visible'));
 });

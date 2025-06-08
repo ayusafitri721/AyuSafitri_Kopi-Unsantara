@@ -1509,4 +1509,17 @@ footer ul li:nth-child(even) { /* Jam operasional */
     .footer-section .newsletter-form button {
         width: 100%;
     }
+    
+    #newsletterMessage.success {
+    color: var(--coklat-tua);
+    font-weight: 500;
+    }
+
+   #newsletterMessage.error {
+    color: #ff4d4d;
+    font-weight: 500;
+   }
+
+   
+
 }
